@@ -190,6 +190,7 @@ body[data-design="2"] .footer-bottom{border-color:rgba(246,227,154,.18);color:rg
  body[data-design="2"] .product-tabs button{min-height:44px;white-space:normal;line-height:1.2}
  body[data-design="2"] .product-tabs button:last-child{grid-column:1/-1}
  body[data-design="2"] .search-fields{grid-template-columns:1fr 1fr}
+ .presentation-mode .guest-popover{left:12px;right:12px;top:auto;bottom:12px;width:auto;max-width:none;margin:0;padding:20px;border-radius:12px;color:var(--ink);z-index:30}
  body[data-design="2"] .hero-bottom{left:16px;right:16px;bottom:40px}
  body[data-design="2"] .section{padding-block:72px}
  body[data-design="2"] .edition-heading{display:block;margin-bottom:30px}
