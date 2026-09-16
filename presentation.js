@@ -26,16 +26,21 @@
   }
 
   document.querySelectorAll('a').forEach(link=>{
+    if(link.matches('[data-idea-choice]')){link.removeAttribute('href');return}
     link.dataset.presentationHref=link.getAttribute('href')||'';
     link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.tabIndex=-1;
   });
   document.querySelectorAll('button').forEach(button=>{
-    const allowed=button.hasAttribute('data-design-switch')||Boolean(button.closest('#search-form')&&!button.matches('[type="submit"],.search-submit'));
+    const allowed=button.hasAttribute('data-design-switch')||button.matches('[data-country]')||Boolean(button.closest('#search-form')&&!button.matches('[type="submit"],.search-submit'));
     if(!allowed){button.disabled=true;button.setAttribute('aria-disabled','true')}
   });
+  document.querySelectorAll('.map-marker').forEach(marker=>marker.addEventListener('click',event=>{
+    event.preventDefault();event.stopImmediatePropagation();marker.focus();
+  },true));
   document.querySelectorAll('form').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();event.stopImmediatePropagation()},true));
   document.addEventListener('click',event=>{
     const link=event.target.closest('a');
+    if(link?.matches('[data-idea-choice]')){event.preventDefault();return}
     if(link){event.preventDefault();event.stopImmediatePropagation()}
   },true);
 })();
